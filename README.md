@@ -18,18 +18,12 @@
    - 5-lane spatial channel breakdown (half-spaces, central channel, wings).
    - AI Analyst grounded in structured tactical positions and in-game events.
 
-3. **Momentum — Match Flow & Pressure Swings**
-   - Event-weighted momentum indicator curve across 90 minutes.
-   - Deterministic turning-point detection with 7%/min exponential decay toward equilibrium.
-   - Filterable timeline intervals (1st Half, 2nd Half, Crucial Moments).
-   - AI Analyst grounded in flow velocity and pressure shifts.
-
-4. **Context90 — Narrative Timeline & Match Intelligence**
+3. **Context90 — Narrative Timeline & Match Intelligence**
    - Categorized decisive match milestones (Tactical shifts, goals, discipline, substitutions).
    - Executive tactical recap and verified key observations.
    - Conversational AI Analyst answering in-depth match inquiries strictly from evidence.
 
-5. **PlayerPulse — Head-to-Head Player Analytics**
+4. **PlayerPulse — Head-to-Head Player Analytics**
    - Per-90 normalized radar profiles and performance trajectory charts.
    - Hexagonal player attribute radar comparing technical and tactical metrics.
    - Transparent performance scoring heuristic clamped to [4.00, 10.00].
