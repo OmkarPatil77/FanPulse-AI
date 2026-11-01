@@ -1,0 +1,198 @@
+import { Team } from "@/types/football";
+
+/**
+ * Premier League 2026/27 Teams — Centralized Registry
+ * All IDs are stable lowercase 3-letter codes.
+ */
+export const TEAMS_DATA: Record<string, Team> = {
+  ars: {
+    id: "ars",
+    name: "Arsenal",
+    shortName: "Arsenal",
+    code: "ARS",
+    venue: "Emirates Stadium, London",
+    primaryColor: "#EF0107",
+    accentColor: "#B9F36A",
+  },
+  che: {
+    id: "che",
+    name: "Chelsea",
+    shortName: "Chelsea",
+    code: "CHE",
+    venue: "Stamford Bridge, London",
+    primaryColor: "#034694",
+    accentColor: "#69B2FF",
+  },
+  mci: {
+    id: "mci",
+    name: "Manchester City",
+    shortName: "Man City",
+    code: "MCI",
+    venue: "Etihad Stadium, Manchester",
+    primaryColor: "#6CABDD",
+    accentColor: "#93D5FF",
+  },
+  liv: {
+    id: "liv",
+    name: "Liverpool",
+    shortName: "Liverpool",
+    code: "LIV",
+    venue: "Anfield, Liverpool",
+    primaryColor: "#C8102E",
+    accentColor: "#FFA2A2",
+  },
+  avl: {
+    id: "avl",
+    name: "Aston Villa",
+    shortName: "Aston Villa",
+    code: "AVL",
+    venue: "Villa Park, Birmingham",
+    primaryColor: "#95BFE5",
+    accentColor: "#670E36",
+  },
+  tot: {
+    id: "tot",
+    name: "Tottenham Hotspur",
+    shortName: "Tottenham",
+    code: "TOT",
+    venue: "Tottenham Hotspur Stadium, London",
+    primaryColor: "#132257",
+    accentColor: "#FFFFFF",
+  },
+  new: {
+    id: "new",
+    name: "Newcastle United",
+    shortName: "Newcastle",
+    code: "NEW",
+    venue: "St. James' Park, Newcastle",
+    primaryColor: "#241F20",
+    accentColor: "#FFFFFF",
+  },
+  bha: {
+    id: "bha",
+    name: "Brighton & Hove Albion",
+    shortName: "Brighton",
+    code: "BHA",
+    venue: "Amex Stadium, Brighton",
+    primaryColor: "#0057B8",
+    accentColor: "#FFCD00",
+  },
+  nfo: {
+    id: "nfo",
+    name: "Nottingham Forest",
+    shortName: "Nott'm Forest",
+    code: "NFO",
+    venue: "City Ground, Nottingham",
+    primaryColor: "#DD0000",
+    accentColor: "#FFFFFF",
+  },
+  mun: {
+    id: "mun",
+    name: "Manchester United",
+    shortName: "Man United",
+    code: "MUN",
+    venue: "Old Trafford, Manchester",
+    primaryColor: "#DA291C",
+    accentColor: "#FFE500",
+  },
+  ful: {
+    id: "ful",
+    name: "Fulham",
+    shortName: "Fulham",
+    code: "FUL",
+    venue: "Craven Cottage, London",
+    primaryColor: "#FFFFFF",
+    accentColor: "#000000",
+  },
+  bre: {
+    id: "bre",
+    name: "Brentford",
+    shortName: "Brentford",
+    code: "BRE",
+    venue: "Gtech Community Stadium, London",
+    primaryColor: "#E30613",
+    accentColor: "#FBB800",
+  },
+  whu: {
+    id: "whu",
+    name: "West Ham United",
+    shortName: "West Ham",
+    code: "WHU",
+    venue: "London Stadium, London",
+    primaryColor: "#7A263A",
+    accentColor: "#1BB1E7",
+  },
+  bou: {
+    id: "bou",
+    name: "Bournemouth",
+    shortName: "Bournemouth",
+    code: "BOU",
+    venue: "Vitality Stadium, Bournemouth",
+    primaryColor: "#DA291C",
+    accentColor: "#000000",
+  },
+  eve: {
+    id: "eve",
+    name: "Everton",
+    shortName: "Everton",
+    code: "EVE",
+    venue: "Goodison Park, Liverpool",
+    primaryColor: "#003399",
+    accentColor: "#FFFFFF",
+  },
+  lei: {
+    id: "lei",
+    name: "Leicester City",
+    shortName: "Leicester",
+    code: "LEI",
+    venue: "King Power Stadium, Leicester",
+    primaryColor: "#0053A0",
+    accentColor: "#FDBE11",
+  },
+  ips: {
+    id: "ips",
+    name: "Ipswich Town",
+    shortName: "Ipswich",
+    code: "IPS",
+    venue: "Portman Road, Ipswich",
+    primaryColor: "#003399",
+    accentColor: "#D11E39",
+  },
+  wol: {
+    id: "wol",
+    name: "Wolverhampton Wanderers",
+    shortName: "Wolves",
+    code: "WOL",
+    venue: "Molineux Stadium, Wolverhampton",
+    primaryColor: "#FDB913",
+    accentColor: "#231F20",
+  },
+  cry: {
+    id: "cry",
+    name: "Crystal Palace",
+    shortName: "Crystal Palace",
+    code: "CRY",
+    venue: "Selhurst Park, London",
+    primaryColor: "#1B458F",
+    accentColor: "#C4122E",
+  },
+  sou: {
+    id: "sou",
+    name: "Southampton",
+    shortName: "Southampton",
+    code: "SOU",
+    venue: "St Mary's Stadium, Southampton",
+    primaryColor: "#D71920",
+    accentColor: "#130C0E",
+  },
+};
+
+export const TEAMS_LIST: Team[] = Object.values(TEAMS_DATA);
+
+export function getTeamById(id: string): Team {
+  const team = TEAMS_DATA[id.toLowerCase()];
+  if (!team) {
+    throw new Error(`Team with ID "${id}" not found in TEAMS_DATA`);
+  }
+  return team;
+}

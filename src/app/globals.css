@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #0B0D0F;
+  --color-brand-surface: #121619;
+  --color-brand-card: #171C20;
+  --color-brand-card-hover: #1D2328;
+  --color-brand-border: #272E32;
+  --color-brand-border-light: #364046;
+  --color-brand-accent: #B9F36A;
+  --color-brand-accent-hover: #A4DF55;
+  --color-brand-accent-muted: rgba(185, 243, 106, 0.14);
+  --color-brand-text: #F5F7F2;
+  --color-brand-text-muted: #929B9E;
+  --color-brand-text-dim: #647076;
+  --color-brand-warning: #F4B860;
+  --color-brand-danger: #EF6B6B;
+  --font-sans: var(--font-poppins), "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-poppins: var(--font-poppins), "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-poppins {
+  font-family: var(--font-poppins), "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: var(--font-poppins), "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html,
+body {
+  background-color: #0B0D0F;
+  color: #F5F7F2;
+  font-family: var(--font-poppins), "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* Custom scrollbars for sports data tables and cards */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0D0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #272E32;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #373F45;
+}
