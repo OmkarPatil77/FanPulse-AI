@@ -652,14 +652,14 @@ export default function RaceStatePage() {
       {/* FILTER TABS & TABLE VIEW CONTROLS (CLEAN SEGMENTED CONTROL UX) */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
         {/* Segmented Control Pill Bar */}
-        <div className="inline-flex p-1 rounded-xl bg-[#0E131A] border border-[#1F2734] gap-1">
+        <div className="inline-flex p-1 rounded-xl bg-[#0E131A] border border-[#1F2734] gap-1 max-w-full overflow-x-auto scrollbar-none">
           {filterTabs.map((tab) => {
             const isTabActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${isTabActive
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0 ${isTabActive
                     ? "bg-[#1E293B] text-white shadow-sm ring-1 ring-white/10"
                     : "text-[#8E9CA8] hover:text-white"
                   }`}
@@ -671,7 +671,7 @@ export default function RaceStatePage() {
         </div>
 
         {/* View and Theme Toggles */}
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           {/* Detailed stats toggle */}
           <button
             onClick={() => setShowDetailedStats(!showDetailedStats)}
@@ -708,7 +708,7 @@ export default function RaceStatePage() {
 
       {/* PREMIER LEAGUE OFFICIAL BROADCAST STANDINGS CARD (EXACT UI/UX FROM REFERENCE IMAGE) */}
       <div
-        className={`rounded-2xl transition-all shadow-2xl overflow-hidden p-6 sm:p-8 relative ${tableStyle === "broadcast-white"
+        className={`rounded-2xl transition-all shadow-2xl overflow-hidden p-3.5 sm:p-6 lg:p-8 relative ${tableStyle === "broadcast-white"
             ? "bg-[#FFFFFF] text-[#1E293B] border border-slate-200"
             : "bg-[#121721] text-[#F1F5F9] border border-[#202936]"
           }`}
@@ -746,7 +746,7 @@ export default function RaceStatePage() {
             {selectedMatch.fixture.matchweekLabel.toUpperCase()}
           </div>
 
-          <div className="flex items-center gap-6 sm:gap-8 font-semibold">
+          <div className="flex items-center gap-2.5 sm:gap-6 md:gap-8 font-semibold">
             {showDetailedStats && (
               <>
                 <span className="w-6 text-center hidden md:inline-block">W</span>
@@ -769,7 +769,7 @@ export default function RaceStatePage() {
 
         {/* Table Rows (Clean and spacious like official broadcast image) */}
         <div
-          className={`divide-y ${tableStyle === "broadcast-white" ? "divide-slate-100" : "divide-[#1A222E]"
+          className={`divide-y overflow-x-auto scrollbar-none ${tableStyle === "broadcast-white" ? "divide-slate-100" : "divide-[#1A222E]"
             }`}
         >
           {displayedRows.map((teamStanding) => {
@@ -866,7 +866,7 @@ export default function RaceStatePage() {
                 </div>
 
                 {/* Right side: P, GD, PTS */}
-                <div className="flex items-center gap-6 sm:gap-8 font-poppins text-xs sm:text-sm shrink-0">
+                <div className="flex items-center gap-2.5 sm:gap-6 md:gap-8 font-poppins text-xs sm:text-sm shrink-0">
                   {showDetailedStats && (
                     <>
                       <span className="w-6 text-center text-slate-500 hidden md:inline-block">
@@ -922,8 +922,8 @@ export default function RaceStatePage() {
         </div>
 
         {/* Footer Hashtag watermark matching screenshot */}
-        <div className="mt-6 pt-3 flex items-center justify-between border-t border-slate-100 text-xs">
-          <div className="flex items-center gap-3 text-[11px] text-slate-500">
+        <div className="mt-6 pt-3 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 text-xs">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-[11px] text-slate-500">
             <span className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#581C87]" /> UEFA Champions League
             </span>

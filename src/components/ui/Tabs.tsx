@@ -72,7 +72,7 @@ export function Tabs({
   return (
     <div
       className={cn(
-        "inline-flex p-1 bg-[#121619] border border-[#272E32] rounded-lg gap-1 overflow-x-auto",
+        "inline-flex p-1 bg-[#121619] border border-[#272E32] rounded-lg gap-1 overflow-x-auto max-w-full scrollbar-none",
         className
       )}
     >

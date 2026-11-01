@@ -493,36 +493,36 @@ export default function TactiQPage() {
       </div>
 
       {/* 2. MATCH SCORE & FORMATION VIEW BAR */}
-      <div className="bg-[#12161F] border border-[#1F2733] rounded-2xl p-4 sm:p-5 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-[#12161F] border border-[#1F2733] rounded-2xl p-3.5 sm:p-5 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-3.5 sm:gap-4">
         {/* Left: Team Crests, Venue, and Score */}
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-full bg-[#1A222D] border border-[#273240] flex items-center justify-center shrink-0">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1A222D] border border-[#273240] flex items-center justify-center shrink-0">
             {selectedMatch.homeTeam.code === "ARS" ? (
-              <ArsenalCrest className="w-6 h-7" />
+              <ArsenalCrest className="w-5 h-6 sm:w-6 sm:h-7" />
             ) : (
               <span className="font-bold text-xs text-[#B9F36A] font-mono">{selectedMatch.homeTeam.code}</span>
             )}
           </div>
 
-          <div>
-            <div className="text-[10px] font-mono uppercase tracking-wider text-[#8E9CA8] flex items-center gap-1.5">
-              <span>{selectedMatch.fixture.venue.toUpperCase()}</span>
+          <div className="min-w-0">
+            <div className="text-[10px] font-mono uppercase tracking-wider text-[#8E9CA8] flex items-center gap-1.5 truncate">
+              <span className="truncate">{selectedMatch.fixture.venue.toUpperCase()}</span>
               <span>·</span>
-              <span>MATCH 08:55 ({selectedMatch.status === "IN_PLAY" ? "LIVE" : selectedMatch.status})</span>
+              <span className="shrink-0">MATCH 08:55 ({selectedMatch.status === "IN_PLAY" ? "LIVE" : selectedMatch.status})</span>
             </div>
-            <div className="flex items-center gap-3 mt-0.5">
-              <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+            <div className="flex items-center gap-2 sm:gap-3 mt-0.5 flex-wrap">
+              <h2 className="text-base sm:text-xl font-bold text-white tracking-tight truncate">
                 {selectedMatch.homeTeam.name}
               </h2>
-              <span className="text-lg sm:text-xl font-mono font-black text-[#B9F36A]">
+              <span className="text-base sm:text-xl font-mono font-black text-[#B9F36A] shrink-0">
                 {selectedMatch.homeScore} - {selectedMatch.awayScore}
               </span>
-              <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+              <h2 className="text-base sm:text-xl font-bold text-white tracking-tight truncate">
                 {selectedMatch.awayTeam.name}
               </h2>
-              <div className="w-7 h-7 rounded-full bg-[#1A222D] border border-[#273240] flex items-center justify-center shrink-0 ml-1">
+              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#1A222D] border border-[#273240] flex items-center justify-center shrink-0 ml-0.5 sm:ml-1">
                 {selectedMatch.awayTeam.code === "CHE" ? (
-                  <ChelseaCrest className="w-5 h-5" />
+                  <ChelseaCrest className="w-4 h-4 sm:w-5 sm:h-5" />
                 ) : (
                   <span className="font-bold text-[10px] text-white font-mono">{selectedMatch.awayTeam.code}</span>
                 )}
@@ -532,7 +532,7 @@ export default function TactiQPage() {
         </div>
 
         {/* Right: Formation View Segmented Switcher */}
-        <div className="flex items-center gap-2 self-start md:self-center">
+        <div className="flex flex-wrap items-center gap-2 self-start md:self-center">
           <span className="text-xs font-mono uppercase text-[#8E9CA8] font-bold mr-1">
             FORMATION View:
           </span>
@@ -542,7 +542,7 @@ export default function TactiQPage() {
               setSelectedTeam("home");
               setFocusedPlayerId("ars-white");
             }}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm cursor-pointer ${
+            className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm cursor-pointer ${
               selectedTeam === "home"
                 ? "bg-[#B9F36A] text-[#0B0D11] shadow-[#B9F36A]/20"
                 : "bg-[#161D27] text-[#8E9CA8] border border-[#232F3E] hover:text-white"
@@ -556,7 +556,7 @@ export default function TactiQPage() {
               setSelectedTeam("away");
               setFocusedPlayerId("che-palmer");
             }}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm cursor-pointer ${
+            className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition shadow-sm cursor-pointer ${
               selectedTeam === "away"
                 ? "bg-[#B9F36A] text-[#0B0D11] shadow-[#B9F36A]/20"
                 : "bg-[#161D27] text-[#8E9CA8] border border-[#232F3E] hover:text-white"
@@ -806,7 +806,7 @@ export default function TactiQPage() {
                       {/* Name Tag Pill */}
                       <div className={`mt-1 flex flex-col ${tagAlignment}`}>
                         <div
-                          className={`px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold max-w-[80px] sm:max-w-[95px] truncate text-center leading-tight transition-colors ${
+                          className={`px-1 sm:px-2 py-0.5 rounded text-[9px] sm:text-[11px] font-semibold max-w-[65px] sm:max-w-[95px] truncate text-center leading-tight transition-colors ${
                             isBenWhite || isSelected
                               ? "bg-[#0B0F14] text-[#B9F36A] border border-[#B9F36A]/60 shadow-md"
                               : "bg-[#0B0F14]/90 text-white border border-[#273241]/80 group-hover:text-[#B9F36A]"
@@ -817,7 +817,7 @@ export default function TactiQPage() {
 
                         {/* Inverted Badge for White */}
                         {isBenWhite && (
-                          <span className="text-[9px] font-mono text-[#B9F36A] bg-[#122A16] px-1.5 py-0.2 rounded mt-0.5 border border-[#B9F36A]/50 font-bold whitespace-nowrap">
+                          <span className="text-[8px] sm:text-[9px] font-mono text-[#B9F36A] bg-[#122A16] px-1 sm:px-1.5 py-0.2 rounded mt-0.5 border border-[#B9F36A]/50 font-bold whitespace-nowrap">
                             Inverted
                           </span>
                         )}
@@ -828,8 +828,8 @@ export default function TactiQPage() {
               </div>
 
               {/* Floating Bottom Bar inside Pitch */}
-              <div className="absolute bottom-3 left-4 right-4 bg-[#0B0F14]/95 border border-[#273241] rounded-xl px-3.5 py-2 flex items-center justify-between shadow-2xl backdrop-blur-xs">
-                <div className="flex items-center gap-2 min-w-0">
+              <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-4 right-2 sm:right-4 bg-[#0B0F14]/95 border border-[#273241] rounded-xl px-2.5 sm:px-3.5 py-1.5 sm:py-2 flex items-center justify-between shadow-2xl backdrop-blur-xs">
+                <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
                   <div
                     className={`w-5 h-5 rounded-full text-white font-mono font-bold text-[10px] flex items-center justify-center shrink-0 ${
                       selectedTeam === "home" ? "bg-[#DC2626]" : "bg-[#2563EB]"
@@ -841,11 +841,11 @@ export default function TactiQPage() {
                     #{focusedLineupPlayer.player.number} {focusedLineupPlayer.player.name}
                   </span>
                   <span className="text-[#64748B] text-xs shrink-0">|</span>
-                  <span className="text-[11px] font-mono uppercase text-[#B9F36A] font-semibold truncate">
+                  <span className="text-[10px] sm:text-[11px] font-mono uppercase text-[#B9F36A] font-semibold truncate">
                     {focusedLineupPlayer.coordinate.role.toUpperCase()}
                   </span>
                 </div>
-                <span className="text-[10px] font-mono bg-[#182618] border border-[#B9F36A]/40 text-[#B9F36A] px-2 py-0.5 rounded font-bold shrink-0 ml-2">
+                <span className="hidden sm:inline-block text-[10px] font-mono bg-[#182618] border border-[#B9F36A]/40 text-[#B9F36A] px-2 py-0.5 rounded font-bold shrink-0 ml-2">
                   Role: {focusedLineupPlayer.player.positionCategory}
                 </span>
               </div>

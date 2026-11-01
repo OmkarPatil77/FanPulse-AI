@@ -103,7 +103,7 @@ export function Topbar({ onToggleSidebar }: TopbarProps) {
                 className="fixed inset-0 z-30"
                 onClick={() => setMatchDropdownOpen(false)}
               />
-              <div className="absolute right-0 mt-2 w-72 bg-[#121619] border border-[#272E32] rounded-lg shadow-xl z-40 p-2 space-y-1">
+              <div className="absolute right-0 mt-2 w-72 max-w-[calc(100vw-1.5rem)] bg-[#121619] border border-[#272E32] rounded-lg shadow-xl z-40 p-2 space-y-1">
                 <div className="px-2 py-1.5 text-[10px] font-mono uppercase text-[#929B9E] flex items-center justify-between border-b border-[#272E32] mb-1">
                   <span>Match Context</span>
                   <span>{selectedMatch.fixture.matchweekLabel}</span>

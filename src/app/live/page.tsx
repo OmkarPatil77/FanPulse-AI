@@ -455,23 +455,23 @@ export default function LiveMatchesPage() {
       </div>
 
       {/* 2. MAIN FIXTURES CONTAINER */}
-      <div className="bg-[#12161F] border border-[#1E2633] rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-xl space-y-8 select-none">
+      <div className="bg-[#12161F] border border-[#1E2633] rounded-2xl sm:rounded-3xl p-3 sm:p-6 lg:p-7 shadow-xl space-y-6 sm:space-y-8 select-none">
         {/* ========================================================
             SECTION A: YESTERDAY (Full Time Results - 5 Matches, 10 Teams)
            ======================================================== */}
         <div className="space-y-2">
           <div className="flex items-center justify-between pb-2">
-            <div className="flex items-center gap-2.5">
-              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+            <div className="flex items-center gap-2">
+              <h3 className="text-base sm:text-xl font-bold text-white tracking-tight">
                 Yesterday
               </h3>
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#1A222D] border border-[#273240] text-[#8E9CA8]">
+              <span className="text-[10px] sm:text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#1A222D] border border-[#273240] text-[#8E9CA8]">
                 {filteredYesterday.length} FT
               </span>
             </div>
             <button
               type="button"
-              className="text-xs text-[#8E9CA8] hover:text-white px-3 py-1 rounded-full bg-[#1A222D] border border-[#273240] hover:border-[#BAF36A]/40 transition flex items-center gap-1 cursor-pointer"
+              className="text-xs text-[#8E9CA8] hover:text-white px-2.5 sm:px-3 py-1 rounded-full bg-[#1A222D] border border-[#273240] hover:border-[#BAF36A]/40 transition flex items-center gap-1 cursor-pointer"
             >
               <span>Live blog</span>
               <ChevronRight className="w-3 h-3 text-[#BAF36A]" />
@@ -485,38 +485,38 @@ export default function LiveMatchesPage() {
                 <div
                   key={m.id}
                   onClick={() => handleSelectFixture(m.id)}
-                  className={`py-3 sm:py-3.5 flex items-center justify-between cursor-pointer group transition-all rounded-xl px-2 sm:px-3 ${
+                  className={`py-3 sm:py-3.5 flex items-center justify-between cursor-pointer group transition-all rounded-xl px-1.5 sm:px-3 ${
                     isSelected
                       ? "bg-[#182614]/80 ring-1 ring-[#BAF36A]/60 shadow-md"
                       : "hover:bg-[#161D27]/70"
                   }`}
                 >
                   {/* Left: Status indicator (FT) */}
-                  <div className="w-10 sm:w-14 shrink-0 text-left">
+                  <div className="w-8 sm:w-14 shrink-0 text-left">
                     <span className="text-xs font-mono font-bold text-[#64748B]">
                       {m.status}
                     </span>
                   </div>
 
                   {/* Center: Matchup (Home - Score - Away) */}
-                  <div className="flex-1 flex items-center justify-center gap-2 sm:gap-4 max-w-xl mx-auto">
+                  <div className="flex-1 flex items-center justify-center gap-1.5 sm:gap-4 max-w-xl mx-auto min-w-0">
                     {/* Home Team */}
-                    <div className="flex-1 flex items-center justify-end gap-2 text-right min-w-0">
+                    <div className="flex-1 flex items-center justify-end gap-1.5 sm:gap-2 text-right min-w-0">
                       <span className="text-xs sm:text-sm font-bold text-white group-hover:text-[#BAF36A] transition-colors truncate">
                         {m.homeTeam.name}
                       </span>
-                      <TeamCrest code={m.homeTeam.code} className="w-6 h-6 shrink-0" />
+                      <TeamCrest code={m.homeTeam.code} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
                     </div>
 
                     {/* Score */}
-                    <div className="shrink-0 px-2.5 sm:px-3 py-1 font-mono font-black text-xs sm:text-sm text-white bg-[#1A222D] border border-[#273240] rounded-md text-center min-w-[50px] shadow-xs">
+                    <div className="shrink-0 px-2 sm:px-3 py-1 font-mono font-black text-xs sm:text-sm text-white bg-[#1A222D] border border-[#273240] rounded-md text-center min-w-[44px] sm:min-w-[50px] shadow-xs">
                       {m.scoreOrTime}
                     </div>
 
                     {/* Away Team */}
-                    <div className="flex-1 flex items-center justify-start gap-2 text-left min-w-0">
-                      <TeamCrest code={m.awayTeam.code} className="w-6 h-6 shrink-0" />
-                      <div className="flex items-center gap-1.5 truncate">
+                    <div className="flex-1 flex items-center justify-start gap-1.5 sm:gap-2 text-left min-w-0">
+                      <TeamCrest code={m.awayTeam.code} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
+                      <div className="flex items-center gap-1 truncate">
                         <span className="text-xs sm:text-sm font-bold text-white group-hover:text-[#BAF36A] transition-colors truncate">
                           {m.awayTeam.name}
                         </span>
@@ -531,13 +531,14 @@ export default function LiveMatchesPage() {
                   </div>
 
                   {/* Right Status */}
-                  <div className="w-10 sm:w-14 shrink-0 text-right">
+                  <div className="w-7 sm:w-14 shrink-0 text-right">
                     {isSelected ? (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase text-[#BAF36A] bg-[#182614] border border-[#BAF36A]/40 px-2 py-0.5 rounded-full font-bold">
+                      <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase text-[#BAF36A] bg-[#182614] border border-[#BAF36A]/40 px-1.5 sm:px-2 py-0.5 rounded-full font-bold">
                         <Check className="w-2.5 h-2.5" />
+                        <span className="hidden sm:inline">Active</span>
                       </span>
                     ) : (
-                      <span className="text-[10px] font-mono text-[#64748B] group-hover:text-[#BAF36A] opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[10px] font-mono text-[#64748B] group-hover:text-[#BAF36A] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">
                         Select
                       </span>
                     )}
@@ -553,17 +554,17 @@ export default function LiveMatchesPage() {
            ======================================================== */}
         <div className="space-y-2 pt-2">
           <div className="flex items-center justify-between pb-2">
-            <div className="flex items-center gap-2.5">
-              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+            <div className="flex items-center gap-2">
+              <h3 className="text-base sm:text-xl font-bold text-white tracking-tight">
                 Today
               </h3>
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#182614] border border-[#BAF36A]/30 text-[#BAF36A] font-bold">
+              <span className="text-[10px] sm:text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#182614] border border-[#BAF36A]/30 text-[#BAF36A] font-bold">
                 1 LIVE · {filteredToday.length - 1} Scheduled
               </span>
             </div>
             <button
               type="button"
-              className="text-xs text-[#8E9CA8] hover:text-white px-3 py-1 rounded-full bg-[#1A222D] border border-[#273240] hover:border-[#BAF36A]/40 transition flex items-center gap-1 cursor-pointer"
+              className="text-xs text-[#8E9CA8] hover:text-white px-2.5 sm:px-3 py-1 rounded-full bg-[#1A222D] border border-[#273240] hover:border-[#BAF36A]/40 transition flex items-center gap-1 cursor-pointer"
             >
               <span>Live blog</span>
               <ChevronRight className="w-3 h-3 text-[#BAF36A]" />
@@ -579,7 +580,7 @@ export default function LiveMatchesPage() {
                 <div
                   key={m.id}
                   onClick={() => handleSelectFixture(m.id)}
-                  className={`py-3.5 sm:py-4 flex items-center justify-between cursor-pointer group transition-all rounded-xl px-2 sm:px-3 relative ${
+                  className={`py-3.5 sm:py-4 flex items-center justify-between cursor-pointer group transition-all rounded-xl px-1.5 sm:px-3 relative ${
                     isSelected
                       ? "bg-[#182614]/80 ring-1 ring-[#BAF36A]/60 shadow-lg"
                       : "hover:bg-[#161D27]/70"
@@ -590,10 +591,10 @@ export default function LiveMatchesPage() {
                   }`}
                 >
                   {/* Left: Status indicator (HT, 78', or Kickoff Time) */}
-                  <div className="w-12 sm:w-16 shrink-0 text-left">
+                  <div className="w-10 sm:w-16 shrink-0 text-left">
                     {isLive ? (
                       <div className="flex flex-col">
-                        <span className="flex items-center gap-1 text-xs font-mono font-bold text-[#BAF36A]">
+                        <span className="flex items-center gap-1 text-[11px] sm:text-xs font-mono font-bold text-[#BAF36A]">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#BAF36A] animate-pulse" />
                           {m.status === "HT" ? "HT" : `${m.minute || 78}'`}
                         </span>
@@ -609,19 +610,19 @@ export default function LiveMatchesPage() {
                   </div>
 
                   {/* Center: Matchup (Home - Score - Away + Broadcasters) */}
-                  <div className="flex-1 flex flex-col items-center">
-                    <div className="flex items-center justify-center gap-2 sm:gap-4 w-full max-w-xl mx-auto">
+                  <div className="flex-1 flex flex-col items-center min-w-0">
+                    <div className="flex items-center justify-center gap-1.5 sm:gap-4 w-full max-w-xl mx-auto min-w-0">
                       {/* Home Team */}
-                      <div className="flex-1 flex items-center justify-end gap-2 text-right min-w-0">
+                      <div className="flex-1 flex items-center justify-end gap-1.5 sm:gap-2 text-right min-w-0">
                         <span className="text-xs sm:text-sm font-bold text-white group-hover:text-[#BAF36A] transition-colors truncate">
                           {m.homeTeam.name}
                         </span>
-                        <TeamCrest code={m.homeTeam.code} className="w-6 h-6 shrink-0" />
+                        <TeamCrest code={m.homeTeam.code} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
                       </div>
 
                       {/* Center Score Pill */}
                       <div
-                        className={`shrink-0 px-2.5 sm:px-3 py-1 font-mono font-black text-xs sm:text-sm rounded-md shadow min-w-[54px] text-center transition-all ${
+                        className={`shrink-0 px-2 sm:px-3 py-1 font-mono font-black text-xs sm:text-sm rounded-md shadow min-w-[46px] sm:min-w-[54px] text-center transition-all ${
                           isLive
                             ? "bg-[#BAF36A] text-[#0B0D11] shadow-md font-bold"
                             : "bg-[#1A222D] text-white border border-[#273240]"
@@ -631,8 +632,8 @@ export default function LiveMatchesPage() {
                       </div>
 
                       {/* Away Team */}
-                      <div className="flex-1 flex items-center justify-start gap-2 text-left min-w-0">
-                        <TeamCrest code={m.awayTeam.code} className="w-6 h-6 shrink-0" />
+                      <div className="flex-1 flex items-center justify-start gap-1.5 sm:gap-2 text-left min-w-0">
+                        <TeamCrest code={m.awayTeam.code} className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
                         <span className="text-xs sm:text-sm font-bold text-white group-hover:text-[#BAF36A] transition-colors truncate">
                           {m.awayTeam.name}
                         </span>
@@ -641,11 +642,11 @@ export default function LiveMatchesPage() {
 
                     {/* Broadcaster Badges */}
                     {m.broadcasters && (
-                      <div className="flex items-center justify-center gap-1.5 mt-2">
-                        <div className="px-2 py-0.5 rounded bg-[#1A222D] border border-[#273240] text-[8px] font-mono text-[#8E9CA8] font-bold tracking-wider shadow-xs">
+                      <div className="flex items-center justify-center gap-1.5 mt-1.5">
+                        <div className="px-1.5 sm:px-2 py-0.5 rounded bg-[#1A222D] border border-[#273240] text-[8px] font-mono text-[#8E9CA8] font-bold tracking-wider shadow-xs">
                           SPORT
                         </div>
-                        <div className="px-2 py-0.5 rounded bg-white/10 border border-white/15 text-white text-[8px] font-mono font-extrabold tracking-wider shadow-xs">
+                        <div className="px-1.5 sm:px-2 py-0.5 rounded bg-white/10 border border-white/15 text-white text-[8px] font-mono font-extrabold tracking-wider shadow-xs">
                           SELECT HD
                         </div>
                       </div>
@@ -653,14 +654,14 @@ export default function LiveMatchesPage() {
                   </div>
 
                   {/* Right: Selection sync indicator */}
-                  <div className="w-12 sm:w-16 shrink-0 text-right">
+                  <div className="w-7 sm:w-16 shrink-0 text-right">
                     {isSelected ? (
-                      <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase text-[#BAF36A] bg-[#182614] border border-[#BAF36A]/40 px-2 py-0.5 rounded-full font-bold">
+                      <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase text-[#BAF36A] bg-[#182614] border border-[#BAF36A]/40 px-1.5 sm:px-2 py-0.5 rounded-full font-bold">
                         <Check className="w-2.5 h-2.5" />
-                        Active
+                        <span className="hidden sm:inline">Active</span>
                       </span>
                     ) : (
-                      <span className="text-[10px] font-mono text-[#64748B] group-hover:text-[#BAF36A] opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[10px] font-mono text-[#64748B] group-hover:text-[#BAF36A] opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">
                         Select
                       </span>
                     )}
@@ -718,7 +719,7 @@ export default function LiveMatchesPage() {
       </div>
 
       {/* Information Telemetry Footer */}
-      <div className="flex items-center justify-between text-[11px] font-mono text-[#64748B] px-2">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 text-[11px] font-mono text-[#64748B] px-2">
         <div className="flex items-center gap-1.5">
           <Clock className="w-3.5 h-3.5 text-[#BAF36A]" />
           <span>Premier League Match Center Telemetry · 10 Fixtures · 20 Clubs</span>

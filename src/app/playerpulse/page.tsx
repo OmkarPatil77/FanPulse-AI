@@ -685,7 +685,7 @@ export default function PlayerPulsePage() {
       {/* TOP GRID: Hero Player Card + Player Traits Radar */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* HERO PLAYER CARD (8 Cols) */}
-        <div className="lg:col-span-8 bg-[#141A22] border border-[#222B36] rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between shadow-xl">
+        <div className="lg:col-span-8 bg-[#141A22] border border-[#222B36] rounded-2xl p-4 sm:p-6 relative overflow-hidden flex flex-col justify-between shadow-xl">
           {/* Subtle Circular Team Crest Watermark Background */}
           <div className="absolute -left-12 -top-12 w-96 h-96 rounded-full border border-white/[0.03] bg-radial from-white/[0.04] to-transparent pointer-events-none" />
           <div className="absolute right-6 top-6 text-[110px] font-black text-white/[0.02] select-none pointer-events-none tracking-tighter">
@@ -728,13 +728,13 @@ export default function PlayerPulsePage() {
             <div className="sm:col-span-8 flex flex-col justify-between h-full space-y-4">
               <div>
                 {/* Title Row with Name & Follow Button */}
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3">
                   <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                     {activePlayerData.name}
                   </h1>
                   <button
                     onClick={() => setIsFollowing(!isFollowing)}
-                    className={`px-5 py-1.5 rounded-lg text-xs font-semibold transition shadow-md shrink-0 ${isFollowing
+                    className={`self-start sm:self-auto px-5 py-1.5 rounded-lg text-xs font-semibold transition shadow-md shrink-0 ${isFollowing
                       ? "bg-[#1E293B] border border-[#3B82F6] text-[#60A5FA]"
                       : "bg-[#2563EB] hover:bg-[#1D4ED8] text-white"
                       }`}
@@ -771,8 +771,8 @@ export default function PlayerPulsePage() {
                 </div>
               </div>
 
-              {/* 2-Column Bio Stats Grid with Icons */}
-              <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-xs border-t border-[#222B36] pt-3.5">
+              {/* 2-Column Bio Stats Grid with Icons (1 col on narrow mobile, 2 col on sm+) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 text-xs border-t border-[#222B36] pt-3.5">
                 {/* Column 1 */}
                 <div className="space-y-2.5">
                   <div className="flex items-center gap-2.5">
@@ -865,7 +865,7 @@ export default function PlayerPulsePage() {
         </div>
 
         {/* PLAYER TRAITS RADAR CARD (4 Cols) */}
-        <div className="lg:col-span-4 bg-[#141A22] border border-[#222B36] rounded-2xl p-6 flex flex-col justify-between shadow-xl">
+        <div className="lg:col-span-4 bg-[#141A22] border border-[#222B36] rounded-2xl p-4 sm:p-6 flex flex-col justify-between shadow-xl">
           <div>
             <div className="flex items-center gap-1.5">
               <h3 className="text-base font-bold text-white">Player Traits</h3>
@@ -941,10 +941,10 @@ export default function PlayerPulsePage() {
       {/* BOTTOM GRID: Transfer Value Progression Line Chart + Pitch Spatial Actions */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* BOTTOM-LEFT: Transfer Value Progression (6 cols) */}
-        <div className="lg:col-span-6 bg-[#141A22] border border-[#222B36] rounded-2xl p-6 flex flex-col justify-between shadow-xl">
+        <div className="lg:col-span-6 bg-[#141A22] border border-[#222B36] rounded-2xl p-4 sm:p-6 flex flex-col justify-between shadow-xl">
           <div>
             {/* Header: Title and Highest Tag */}
-            <div className="flex items-center justify-between pb-3 border-b border-[#222B36]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 pb-3 border-b border-[#222B36]">
               <h3 className="text-base font-bold text-white">
                 Transfer Value: {activePlayerData.currentValuation}
               </h3>
@@ -953,8 +953,8 @@ export default function PlayerPulsePage() {
               </span>
             </div>
 
-            {/* 4 Summary Stat Cards */}
-            <div className="grid grid-cols-4 gap-2.5 my-4">
+            {/* 4 Summary Stat Cards (2 cols on mobile, 4 on sm+) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-4">
               <div className="p-3 rounded-xl bg-[#11161D] border border-[#222B36]">
                 <span className="text-[10px] text-[#8E9CA8] block">Current value</span>
                 <span className="text-sm sm:text-base font-bold text-white block mt-0.5">
@@ -1072,7 +1072,7 @@ export default function PlayerPulsePage() {
         </div>
 
         {/* BOTTOM-RIGHT: Match Spatial Actions & Goal Frame (6 cols) */}
-        <div className="lg:col-span-6 bg-[#141A22] border border-[#222B36] rounded-2xl p-6 flex flex-col justify-between shadow-xl">
+        <div className="lg:col-span-6 bg-[#141A22] border border-[#222B36] rounded-2xl p-4 sm:p-6 flex flex-col justify-between shadow-xl">
           <div>
             {/* Header: League & Season Dropdown */}
             <div className="flex items-center justify-between pb-3 border-b border-[#222B36]">

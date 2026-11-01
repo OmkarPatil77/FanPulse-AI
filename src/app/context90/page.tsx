@@ -211,13 +211,13 @@ export default function Context90Page() {
           </h2>
 
           {/* Filter Pills Container */}
-          <div className="bg-[#12161F] border border-[#1E2633] p-1 rounded-xl inline-flex gap-1 flex-wrap">
+          <div className="bg-[#12161F] border border-[#1E2633] p-1 rounded-xl inline-flex gap-1 max-w-full overflow-x-auto scrollbar-none">
             {FILTER_TABS.map((tab) => (
               <button
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3.5 sm:px-4 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${activeTab === tab.id
+                className={`px-3 sm:px-4 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer whitespace-nowrap shrink-0 ${activeTab === tab.id
                   ? "bg-[#B9F36A] text-[#0B0D11] font-bold shadow-sm"
                   : "text-[#8E9CA8] hover:text-white bg-transparent"
                   }`}
@@ -249,16 +249,16 @@ export default function Context90Page() {
                       : event.type.replace("_", " ");
 
                 return (
-                  <div key={event.id} className="flex items-start gap-3.5 group">
+                  <div key={event.id} className="flex items-start gap-2.5 sm:gap-3.5 group">
                     {/* Minute Circle Badge */}
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#B9F36A] text-[#0B0D11] font-mono font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 shadow-md mt-1 group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#B9F36A] text-[#0B0D11] font-mono font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 shadow-md mt-1 group-hover:scale-105 transition-transform">
                       {event.minute}&apos;
                     </div>
 
                     {/* Event Detail Card */}
-                    <div className="flex-1 bg-[#12161F] border border-[#1E2633] rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-[#2C3849] transition-all shadow-md">
+                    <div className="flex-1 bg-[#12161F] border border-[#1E2633] rounded-2xl p-3.5 sm:p-5 flex flex-col justify-between hover:border-[#2C3849] transition-all shadow-md">
                       <div className="flex items-center justify-between mb-1.5">
-                        <h3 className="text-base font-bold text-white tracking-tight">
+                        <h3 className="text-sm sm:text-base font-bold text-white tracking-tight">
                           {event.title}
                         </h3>
                         <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#64748B]">
